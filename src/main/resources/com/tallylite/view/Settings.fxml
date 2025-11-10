@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tallylite.controller.SettingsController">
+   <top>
+      <HBox spacing="10" styleClass="module-header">
+         <padding>
+            <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+         </padding>
+         <Label text="Settings" styleClass="module-title" />
+      </HBox>
+   </top>
+   <center>
+      <VBox spacing="30" styleClass="module-content">
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+         <VBox spacing="15">
+            <Label text="Theme:" styleClass="section-title" />
+            <ComboBox fx:id="cbTheme" prefWidth="200.0" />
+            <Button onAction="#handleSaveTheme" styleClass="primary-button" text="Save Theme" />
+         </VBox>
+         <Separator />
+         <VBox spacing="15">
+            <Label text="Backup &amp; Restore:" styleClass="section-title" />
+            <HBox spacing="10">
+               <Button onAction="#handleBackup" styleClass="primary-button" text="Backup Company" />
+               <Button onAction="#handleRestore" styleClass="primary-button" text="Restore Company" />
+            </HBox>
+         </VBox>
+         <Separator />
+         <VBox spacing="15">
+            <Label text="About" styleClass="section-title" />
+            <Label text="TallyLite v1.0.0" />
+            <Label text="Offline Accounting Software" />
+            <Label text="Built with JavaFX" />
+            <Button onAction="#handleAbout" styleClass="primary-button" text="About" />
+         </VBox>
+      </VBox>
+   </center>
+</BorderPane>
+

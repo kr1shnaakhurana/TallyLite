@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tallylite.controller.DashboardController" fx:id="rootPane">
+   <left>
+      <VBox styleClass="sidebar" spacing="10">
+         <padding>
+            <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
+         </padding>
+         <Label text="Modules" styleClass="sidebar-title" />
+         <Separator />
+         <Button mnemonicParsing="false" onAction="#handleLedgers" styleClass="sidebar-button" text="Ledgers" />
+         <Button mnemonicParsing="false" onAction="#handleVouchers" styleClass="sidebar-button" text="Vouchers" />
+         <Button mnemonicParsing="false" onAction="#handleInventory" styleClass="sidebar-button" text="Inventory" />
+         <Button mnemonicParsing="false" onAction="#handleReports" styleClass="sidebar-button" text="Reports" />
+         <Button mnemonicParsing="false" onAction="#handleSettings" styleClass="sidebar-button" text="Settings" />
+         <Separator />
+         <Button mnemonicParsing="false" onAction="#handleBackToHome" styleClass="sidebar-button-back" text="← Home" />
+      </VBox>
+   </left>
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20" styleClass="status-bar">
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+         <Button onAction="#handleShowDashboard" styleClass="dashboard-home-button" text="🏠 Dashboard" />
+         <Separator orientation="VERTICAL" />
+         <Label fx:id="lblCompanyName" styleClass="status-label" />
+         <Label fx:id="lblFinancialYear" styleClass="status-label" />
+         <Region HBox.hgrow="ALWAYS" />
+         <Button onAction="#refreshDashboard" styleClass="refresh-button" text="🔄 Refresh" />
+      </HBox>
+   </top>
+   <center>
+      <BorderPane fx:id="mainContentArea" styleClass="main-content">
+         <center>
+            <ScrollPane fitToWidth="true" styleClass="dashboard-scroll">
+               <VBox spacing="25" styleClass="dashboard-container">
+                  <padding>
+                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                  </padding>
+                  
+                  <!-- Welcome Section -->
+                  <VBox spacing="10" styleClass="welcome-section">
+                     <Label text="Welcome Back!" styleClass="welcome-title" />
+                     <Label fx:id="lblWelcomeSubtitle" text="Manage your accounting data efficiently" styleClass="welcome-subtitle" />
+                  </VBox>
+                  
+                  <!-- Statistics Cards -->
+                  <GridPane hgap="20" vgap="20" styleClass="stats-grid">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" prefWidth="250.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" prefWidth="250.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" prefWidth="250.0" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" prefWidth="250.0" />
+                     </columnConstraints>
+                     
+                     <!-- Ledgers Card -->
+                     <VBox styleClass="stat-card" onMouseClicked="#handleLedgers" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <padding>
+                           <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+                        <Label text="📊" styleClass="stat-icon" />
+                        <Label fx:id="lblLedgerCount" text="0" styleClass="stat-value" />
+                        <Label text="Ledgers" styleClass="stat-label" />
+                        <Label text="Click to manage" styleClass="stat-hint" />
+                     </VBox>
+                     
+                     <!-- Vouchers Card -->
+                     <VBox styleClass="stat-card" onMouseClicked="#handleVouchers" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <padding>
+                           <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+                        <Label text="📝" styleClass="stat-icon" />
+                        <Label fx:id="lblVoucherCount" text="0" styleClass="stat-value" />
+                        <Label text="Vouchers" styleClass="stat-label" />
+                        <Label text="Click to manage" styleClass="stat-hint" />
+                     </VBox>
+                     
+                     <!-- Inventory Card -->
+                     <VBox styleClass="stat-card" onMouseClicked="#handleInventory" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                        <padding>
+                           <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+                        <Label text="📦" styleClass="stat-icon" />
+                        <Label fx:id="lblInventoryCount" text="0" styleClass="stat-value" />
+                        <Label text="Inventory Items" styleClass="stat-label" />
+                        <Label fx:id="lblInventoryValue" text="₹0.00" styleClass="stat-hint" />
+                     </VBox>
+                     
+                     <!-- Balance Card -->
+                     <VBox styleClass="stat-card" onMouseClicked="#handleReports" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                        <padding>
+                           <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </padding>
+                        <Label text="💰" styleClass="stat-icon" />
+                        <Label fx:id="lblTotalDebit" text="₹0.00" styleClass="stat-value-small" />
+                        <Label text="Total Debit" styleClass="stat-label" />
+                        <Label fx:id="lblTotalCredit" text="₹0.00" styleClass="stat-hint" />
+                     </VBox>
+                  </GridPane>
+                  
+                  <!-- Quick Actions -->
+                  <VBox spacing="15" styleClass="quick-actions-section">
+                     <Label text="Quick Actions" styleClass="section-title" />
+                     <GridPane hgap="15" vgap="15" styleClass="actions-grid">
+                        <columnConstraints>
+                           <ColumnConstraints hgrow="ALWAYS" minWidth="150.0" />
+                           <ColumnConstraints hgrow="ALWAYS" minWidth="150.0" />
+                           <ColumnConstraints hgrow="ALWAYS" minWidth="150.0" />
+                           <ColumnConstraints hgrow="ALWAYS" minWidth="150.0" />
+                        </columnConstraints>
+                        
+                        <Button onAction="#handleLedgers" styleClass="quick-action-button" text="📊 Ledgers" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Button onAction="#handleVouchers" styleClass="quick-action-button" text="📝 Vouchers" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Button onAction="#handleInventory" styleClass="quick-action-button" text="📦 Inventory" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        <Button onAction="#handleReports" styleClass="quick-action-button" text="📈 Reports" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                     </GridPane>
+                  </VBox>
+                  
+                  <!-- Recent Activity or Summary -->
+                  <VBox spacing="15" styleClass="summary-section">
+                     <Label text="Financial Summary" styleClass="section-title" />
+                     <HBox spacing="30" styleClass="summary-box">
+                        <VBox spacing="5" styleClass="summary-item">
+                           <Label text="Total Transactions" styleClass="summary-label" />
+                           <Label fx:id="lblTotalTransactions" text="0" styleClass="summary-value" />
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox spacing="5" styleClass="summary-item">
+                           <Label text="Inventory Value" styleClass="summary-label" />
+                           <Label fx:id="lblInventoryValueSummary" text="₹0.00" styleClass="summary-value" />
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox spacing="5" styleClass="summary-item">
+                           <Label text="Account Balance" styleClass="summary-label" />
+                           <Label fx:id="lblAccountBalance" text="₹0.00" styleClass="summary-value" />
+                        </VBox>
+                     </HBox>
+                  </VBox>
+               </VBox>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>
+

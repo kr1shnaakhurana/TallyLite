@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tallylite.controller.ReportsController">
+   <top>
+      <HBox spacing="10" styleClass="module-header">
+         <padding>
+            <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+         </padding>
+         <Label text="Reports" styleClass="module-title" />
+         <Region HBox.hgrow="ALWAYS" />
+         <Button onAction="#handleTrialBalance" styleClass="primary-button" text="Trial Balance" />
+         <Button onAction="#handleProfitLoss" styleClass="primary-button" text="Profit &amp; Loss" />
+         <Button onAction="#handleBalanceSheet" styleClass="primary-button" text="Balance Sheet" />
+         <Button onAction="#handleExportPDF" styleClass="primary-button" text="Export PDF" />
+         <Button onAction="#handleExportExcel" styleClass="primary-button" text="Export Excel" />
+      </HBox>
+   </top>
+   <center>
+      <VBox spacing="20" styleClass="module-content">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <Label fx:id="lblReportTitle" styleClass="module-title" />
+         <TableView fx:id="reportTableView" styleClass="table-view">
+            <columns>
+               <TableColumn fx:id="colReport1" prefWidth="300.0" text="Item" />
+               <TableColumn fx:id="colReport2" prefWidth="200.0" text="Debit" />
+               <TableColumn fx:id="colReport3" prefWidth="200.0" text="Credit" />
+            </columns>
+         </TableView>
+      </VBox>
+   </center>
+</BorderPane>
+

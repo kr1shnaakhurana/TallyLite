@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tallylite.controller.InventoryController">
+   <top>
+      <HBox spacing="10" styleClass="module-header">
+         <padding>
+            <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+         </padding>
+         <Label text="Inventory Management" styleClass="module-title" />
+      </HBox>
+   </top>
+   <center>
+      <VBox spacing="20" styleClass="module-content">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <HBox spacing="10">
+            <Button onAction="#handleAddItem" styleClass="primary-button" text="Add Item" />
+            <Button onAction="#handleEditItem" styleClass="primary-button" text="Edit Item" />
+            <Button onAction="#handleDeleteItem" styleClass="danger-button" text="Delete Item" />
+         </HBox>
+         <TableView fx:id="inventoryTableView" styleClass="table-view">
+            <columns>
+               <TableColumn fx:id="colItemName" prefWidth="200.0" text="Item Name" />
+               <TableColumn fx:id="colItemGroup" prefWidth="150.0" text="Group" />
+               <TableColumn fx:id="colQuantity" prefWidth="120.0" text="Quantity" />
+               <TableColumn fx:id="colRate" prefWidth="120.0" text="Rate" />
+               <TableColumn fx:id="colValue" prefWidth="150.0" text="Value" />
+            </columns>
+         </TableView>
+      </VBox>
+   </center>
+</BorderPane>
+

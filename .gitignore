@@ -1,0 +1,27 @@
+# Gradle
+.gradle/
+build/
+bin/
+*.jar
+!gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Application data (user data)
+TallyLocal/
+
+# Logs
+*.log
+

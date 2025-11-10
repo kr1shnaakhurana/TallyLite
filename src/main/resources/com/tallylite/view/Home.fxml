@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tallylite.controller.HomeController">
+   <top>
+      <VBox alignment="CENTER" spacing="20" styleClass="header-box">
+         <padding>
+            <Insets bottom="30.0" left="20.0" right="20.0" top="30.0" />
+         </padding>
+         <Label text="TallyLite" styleClass="main-title">
+            <font>
+               <Font size="48.0" />
+            </font>
+         </Label>
+         <Label text="Offline Accounting Software" styleClass="subtitle" />
+      </VBox>
+   </top>
+   <center>
+      <VBox alignment="CENTER" spacing="30" styleClass="center-pane">
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+         <HBox alignment="CENTER" spacing="20" styleClass="button-container">
+            <Button fx:id="btnCreateCompany" mnemonicParsing="false" onAction="#handleCreateCompany" styleClass="primary-button" text="Create Company" />
+            <Button fx:id="btnLoadCompany" mnemonicParsing="false" onAction="#handleLoadCompany" styleClass="primary-button" text="Load Company" />
+            <Button fx:id="btnDeleteCompany" mnemonicParsing="false" onAction="#handleDeleteCompany" styleClass="danger-button" text="Delete Company" />
+         </HBox>
+         <VBox alignment="CENTER" spacing="10" styleClass="company-list-container">
+            <Label text="Available Companies" styleClass="section-title" />
+            <ListView fx:id="companyListView" maxHeight="250.0" maxWidth="400.0" minHeight="250.0" minWidth="400.0" styleClass="company-list" />
+         </VBox>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" styleClass="footer-box">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <Button fx:id="btnExit" mnemonicParsing="false" onAction="#handleExit" styleClass="exit-button" text="Exit" />
+      </HBox>
+   </bottom>
+</BorderPane>
+

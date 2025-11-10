@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tallylite.controller.VoucherController">
+   <top>
+      <HBox spacing="10" styleClass="module-header">
+         <padding>
+            <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+         </padding>
+         <Label text="Voucher Entry" styleClass="module-title" />
+      </HBox>
+   </top>
+   <center>
+      <VBox spacing="20" styleClass="module-content">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <GridPane hgap="15" vgap="15">
+            <columnConstraints>
+               <ColumnConstraints halignment="RIGHT" minWidth="150.0" />
+               <ColumnConstraints minWidth="300.0" />
+            </columnConstraints>
+            <Label text="Voucher Type:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <ComboBox fx:id="cbVoucherType" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label text="Date:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <DatePicker fx:id="dpDate" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Debit Ledger:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cbLedgerDr" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Credit Ledger:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbLedgerCr" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Amount:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <TextField fx:id="txtAmount" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="Narration:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <TextArea fx:id="txtNarration" prefHeight="100.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <Button onAction="#handleSaveVoucher" styleClass="primary-button" text="Save Voucher" />
+               <Button onAction="#handleViewVouchers" styleClass="primary-button" text="View All Vouchers" />
+            </HBox>
+         </GridPane>
+         <Separator />
+         <VBox spacing="10">
+            <Label text="All Vouchers" styleClass="section-title" />
+            <TableView fx:id="voucherTableView" styleClass="table-view">
+               <columns>
+                  <TableColumn fx:id="colVoucherDate" prefWidth="120.0" text="Date" />
+                  <TableColumn fx:id="colVoucherType" prefWidth="100.0" text="Type" />
+                  <TableColumn fx:id="colVoucherDr" prefWidth="150.0" text="Debit" />
+                  <TableColumn fx:id="colVoucherCr" prefWidth="150.0" text="Credit" />
+                  <TableColumn fx:id="colVoucherAmount" prefWidth="120.0" text="Amount" />
+                  <TableColumn fx:id="colVoucherNarration" prefWidth="200.0" text="Narration" />
+               </columns>
+            </TableView>
+         </VBox>
+      </VBox>
+   </center>
+</BorderPane>
+
