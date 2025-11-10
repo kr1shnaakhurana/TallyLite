@@ -60,7 +60,7 @@ All data is stored **locally in JSON**, making backups and transfers simple whil
 
 ## 💙 Developer
 <p align="center">
-  <img src="https://avatars.githubusercontent.com/u/000000?v=4" width="100" style="border-radius:50%;"><br>
+  <img src="https://avatars.githubusercontent.com/u/212576647?s=400&u=f7a00594caccb1d62329280fc2bea2b558f00df0&v=4" width="100" style="border-radius:50%;"><br>
   <b>Krishna Khurana</b><br>
   <sub>Building minimal, functional & local-first apps</sub><br>
   <a href="https://github.com/krishna-khurana" target="_blank">🌐 GitHub Profile</a>
